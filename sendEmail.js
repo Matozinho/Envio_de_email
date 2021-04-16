@@ -21,8 +21,8 @@ module.exports.sendMail = (name, phone) => {
         const mailSent = await transporter
           .sendMail({
             text: `
-          name: ${name}
-          phone: ${phone}
+          nome: ${name}
+          telefone: ${phone}
           `,
             subject: `LEAD!`,
             from: `"Oportunidade no Interior <${process.env.GMAIL_USER}>"`,
@@ -30,7 +30,6 @@ module.exports.sendMail = (name, phone) => {
           })
           .catch((err) => reject(500));
 
-        console.log(mailSent);
         resolve(200);
       } else throw new Error("Inputs preenchidos incorretamente!");
     } catch (err) {
