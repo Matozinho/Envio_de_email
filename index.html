@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input name="nome" type="text" placeholder="Nome" />
+    <input name="phone" type="text" placeholder="telefone" />
+    <button onclick="submit()">Enviar</button>
+
+    <script>
+      async function submit() {
+        const name = document.querySelector("input[name=nome]").value;
+        const phone = document.querySelector("input[name=phone]").value;
+
+        const response = await fetch(
+          `http://localhost:3000/sendEmail?name=${name}&phone=${phone}`
+        );
+
+        if (response.status == 200) alert("E-mail enviado com sucesso!");
+        else if (response.status == 400)
+          alert("preencha os campos corretamente");
+        else alert("Erro no servidor, tente novamente");
+      }
+    </script>
+  </body>
+</html>
