@@ -30,6 +30,7 @@ module.exports.sendMail = (name, phone) => {
           })
           .catch((err) => reject(500));
 
+        console.log(mailSent);
         resolve(200);
       } else throw new Error("Inputs preenchidos incorretamente!");
     } catch (err) {

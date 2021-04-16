@@ -21,6 +21,4 @@ app.get("/sendEmail", (req, res) => {
     });
 });
 
-app.listen(process.env.PORT || 3000, () =>
-  console.log(`Started server at http://localhost:3000!`)
-);
+app.listen(process.env.PORT || 3000, () => console.log(`Started server!`));
